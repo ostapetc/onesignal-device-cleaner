@@ -104,8 +104,6 @@ function startWorkers(browser, tabs, bar, appId, deviceIds) {
                 tabs[i].locked = true;
 
                 await deleteDevice(tabs[i].page, appId, deviceId);
-                fs.appendFileSync('./tmp/deleted_devices.txt', deviceId + '\n');
-
                 tabs[i].locked = false;
 
                 if (!bar.complete) {

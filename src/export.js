@@ -125,7 +125,6 @@ async function main() {
     console.log(`Downloading dump...`);
     const gzipPath = await downloadDump(csvFileUrl, 10);
 
-
     const csvPath = await unzipDump(gzipPath);
     console.log(`Unzipping dump...`);
 

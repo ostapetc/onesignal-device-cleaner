@@ -1,7 +1,6 @@
-const fs         = require('fs');
-const https      = require('https');
-const pathUtil   = require('path');
-const getDumpDir = require('./get-dump-dir');
+const fs       = require('fs');
+const https    = require('https');
+const pathUtil = require('path');
 
 async function downloadDump(url, attempts) {
     const response = await makeRequestAttempts(url, attempts);
@@ -66,7 +65,7 @@ function doRequest(url) {
 }
 
 function getCsvFilePath() {
-    return pathUtil.join(getDumpDir(), '/devices.csv.gz');
+    return pathUtil.join('/tmp/devices.csv.gz');
 }
 
 function initFileStream(path) {
