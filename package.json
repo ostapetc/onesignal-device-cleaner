@@ -1,0 +1,25 @@
+{
+  "name": "onesignal-cleaner",
+  "version": "1.0.0",
+  "description": "Tool for deleting outdated devices from onesignal.com database",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "command-line-args": "^5.0.2",
+    "command-line-usage": "^5.0.5",
+    "csv-parse": "^2.5.0",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "mocha": "^5.2.0",
+    "moment": "^2.22.2",
+    "onesignal-node": "^2.0.0",
+    "progress": "^2.0.0",
+    "puppeteer": "^1.8.0"
+  },
+  "scripts": {
+    "test": "mocha src/test/*.js --timeout 30000 --recursive --exit"
+  }
+}
