@@ -13,3 +13,6 @@ Deletes devices in the file --targetFile=/tmp/devices-to-delete.txt
 ```
 node src/delete.js --appId 1 --email=your@mail.com --password=p1 --targetFile=/tmp/devices-to-delete.txt
 ```
+
+### Disclaimer
+This tool is provided as-is, use at your own risk!
