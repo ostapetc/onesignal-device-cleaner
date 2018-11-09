@@ -54,12 +54,15 @@ function getDevicePageUrl(appId, deviceId) {
 async function login(page, args) {
     console.log('Authentication...');
 
-    await page.goto('https://onesignal.com');
+    await page.goto('https://onesignal.com', {  
+        waitUntil: 'networkidle2',
+        timeout: 3000000
+    });
 
     await page.click('#navigation-bar > div > ul > li:nth-child(5) > a');
     await page.waitFor(1000);
 
-    await page.type('#user_email', args['email']);
+    await page.type('#loginEmail', args['email']);
     await page.type('#user_password', args['password']);
 
     await page.click('#login-form button.go-button');
@@ -68,7 +71,7 @@ async function login(page, args) {
     const title = await page.evaluate(() => {
         return document.querySelector('h1').textContent.trim();
     });
-
+    console.log('title', title);
     if (title !== 'All Applications') {
         console.error('Authentication failed');
         process.exit(1);
@@ -79,7 +82,11 @@ async function deleteDevice(page, appId, devId) {
     try {
         let url = getDevicePageUrl(appId, devId);
 
-        await page.goto(url);
+        await page.goto(url, {
+            waitUntil: 'networkidle2',
+            timeout: 3000000
+        });
+        
         await page.click('#dropdownMenu1');
         await page.click('#players ul.dropdown-menu a[data-method=delete]');
     } catch(error) {
