@@ -3,6 +3,8 @@ const puppeteer   = require('puppeteer');
 const ProgressBar = require('progress');
 const fs          = require('fs');
 
+process.setMaxListeners(Infinity); 
+
 async function createTabs(browser, count) {
     const tabs = [];
 
